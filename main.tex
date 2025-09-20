@@ -29,13 +29,20 @@
 \newacro{cabm}[CABM]{Cellular Agent-Based Model}
 \newacro{ca}[CA]{Cellular Automaton}
 \newacro{ib}[IB]{Individual-Based}
+\newacro{ode}[ODE]{Ordinary Differential Equation}
+\newacro{pde}[PDE]{Partial Differential Equation}
+\newacro{dnn}[DNN]{Deep Neural Network}
+\newacro{mbs}[MBS]{Many-Body Simulation}
 \newacroplural{ca}[CA]{Cellular Automata}
 
 \newcommand{\todo}[1]{\colorbox{WildStrawberry}{\textcolor{white}{#1}}}
 
 \newcommand{\R}{\mathbb{R}}
 
-\title{The Significance of Flexibility in the Design of Agent-Based Models}
+\title{
+    The Significance of Flexibility in the\\
+    Design of Agent-Based Models
+}
 
 %\date{September 9, 1985}	% Here you can change the date presented in the paper title
 %\date{} 					% Or removing it
@@ -83,13 +90,6 @@ pdfauthor={Jonas Pleyer, Christian Fleck},
 pdfkeywords={},
 }
 
-% Define definition, example, lemma, proof and theorem.
-\newtheorem{definition}{Definition}[section]
-\newtheorem{example}[definition]{Example}
-\newtheorem{lemma}[definition]{Lemma}
-\newtheorem{corollary}[definition]{Corollary}
-\newtheorem{theorem}[definition]{Theorem}
-
 % Change numbering of equations
 % \numberwithin{equation}{section}
 
@@ -110,10 +110,6 @@ pdfkeywords={},
 
 % TABLE OF CONTENTS
 % Remove this before submission
-\pagebreak
-\tableofcontents
-\vfill
-\pagebreak
 
 %###################################################################################################
 \begin{abstract}
@@ -122,8 +118,36 @@ pdfkeywords={},
 % keywords can be removed
 \keywords{Individual-Based \and Cell \and Biology \and Dynamical System}
 
+\twocolumn
+
 %###################################################################################################
 \section{Introduction}
+Argument for more flexibility in model design
+
+\begin{itemize}
+    \item Adapt model to biological reality
+    \item Ability to reduce the model until nothing is left
+    \item No inheritance of parameters/magic numbers
+\end{itemize}
+
+\section{Comparison with other Foundational Techniques}
+\begin{itemize}
+    \item Examples for generalized modeling formulations
+    \begin{enumerate}
+        \item \acfp{ode}
+        \item \acfp{pde}
+        \item \acfp{dnn}
+        \item \acfp{mbs}
+    \end{enumerate}
+    \item These are all very generalized but bring forth all kinds of results
+    \item undermines principle: \textbf{Generalized modeling approach} which gets adapted for
+        particular problem
+\end{itemize}
+
+\section{Discussion}
+\section{Conclusion}
+
+\onecolumn
 
 \bibliographystyle{IEEEtran}
 \bibliography{references}
