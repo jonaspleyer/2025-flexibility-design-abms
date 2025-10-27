@@ -15,8 +15,10 @@
 \usepackage{mathrsfs}
 \usepackage{graphicx}
 \usepackage{doi}
+\usepackage{float}
 \usepackage{acronym}
 \usepackage{listings}
+\usepackage{multicol}
 \usepackage{tikz}
 \usepackage[dvipsnames]{xcolor}
 
@@ -40,8 +42,9 @@
 \newcommand{\R}{\mathbb{R}}
 
 \title{
-    The Significance of Flexibility in the\\
-    Design of Agent-Based Models
+    Cellular Agent-Based Modelling Frameworks are not flexible enough
+    % The Significance of Flexibility in the\\
+    % Design of Agent-Based Models
 }
 
 %\date{September 9, 1985}	% Here you can change the date presented in the paper title
@@ -73,7 +76,8 @@
 %\date{}
 
 % Uncomment to override  the `A preprint' in the header
-\renewcommand{\headeright}{Preprint}
+\renewcommand{\headeright}{An Opinion Piece}
+\renewcommand{\undertitle}{An Opinion Piece}
 %\renewcommand{\undertitle}{Technical Report}
 \renewcommand{\shorttitle}{The Significance of Flexibility in the Design of Agent-Based Models}
 
@@ -106,10 +110,19 @@ pdfkeywords={},
 \makeatother
 
 \begin{document}
+
 \maketitle
 
-% TABLE OF CONTENTS
-% Remove this before submission
+\paragraph{Title Building Blocks}
+\begin{enumerate}
+    \item \textbf{\acl{abm}}
+    \item \textbf{Frameworks} (possibly optional, "models" alone only refers to single-purpose studies;
+        frameworks refers to the libraries that aim to provide something abstract enough such that
+        it can be reused)
+    \item \textbf{Flexible/Flexibility} ("not sufficient/enough")
+    \item \textbf{Cellular}
+        \textit{We restrict ourselves cellular systems only. Covering all of Biology is too much.}
+\end{enumerate}
 
 %###################################################################################################
 \begin{abstract}
@@ -118,41 +131,84 @@ pdfkeywords={},
 % keywords can be removed
 \keywords{Individual-Based \and Cell \and Biology \and Dynamical System}
 
-\twocolumn
+\multicols{2}
 
 %###################################################################################################
 \section{Introduction}
-Argument for more flexibility in model design
 
+\paragraph{Usage of \acl{abm}}
+\begin{itemize}
+    \item \cite{Pleyer2023} \acl{abm} are widely used for many problems
+    \item Common choices for cellular representation (i.e. spherical cells, off-lattice approach)
+    \item More biology than models available
+\end{itemize}
+
+\textbf{I argue that \acp{abm} need to be more flexible to support more use-cases and become a tool
+that researchers can experiment with more freely.}
+
+\section{Principles of Foundational Tools}
+
+\paragraph{Introduce some really widespread techniques}
+\begin{enumerate}
+    \item \acfp{ode}
+    \item \acfp{pde}
+    \item \acfp{mbs}
+    \item \acfp{dnn}
+\end{enumerate}
+
+\paragraph{Observations about these tools}
+\begin{itemize}
+    \item Very generalized concepts; specific usage/model brings forth plethora of results
+    \item They have one two things: A mathematical description that everyone agrees on; A solving
+        scheme that everyone agrees on (with variations of course)
+    \item $\Rightarrow$ identify overarching principles:
+    \item Strong results
+    \item Good usability (ie. tools \& Performance)
+    \item \textbf{Generalized formulation} $\longrightarrow$ specific use-case;\\
+        However this is not how they got developed (developed from collection of examples)
+\end{itemize}
+
+\paragraph{General Modeling Approach}
 \begin{itemize}
     \item Adapt model to biological reality
     \item Ability to reduce the model until nothing is left
     \item No inheritance of parameters/magic numbers
 \end{itemize}
 
-\section{Comparison with other Foundational Techniques}
+\section{Cellular \aclp{abm}}
+
+\paragraph{Constructing a computational Model - 2 Options}
+\begin{enumerate}
+    \item Use existing \ac{abm} (Framework)
+    \item Build something from scratch (Possibly even with some really general \ac{abm}
+        framework such as netlogo)
+\end{enumerate}
+% They often combine simulation techniques such as \acp{ode} and \acp{pde}
+
+\paragraph{Problems of Approach 1}
 \begin{itemize}
-    \item Examples for generalized modeling formulations
-    \begin{enumerate}
-        \item \acfp{ode}
-        \item \acfp{pde}
-        \item \acfp{dnn}
-        \item \acfp{mbs}
-    \end{enumerate}
-    \item These are all very generalized but bring forth all kinds of results
-    \item undermines principle: \textbf{Generalized modeling approach} which gets adapted for
-        particular problem
+    \item Inheritance of existing parameters
+    \item Does the existing model match the use-case? Or are researchers trying to make it conform?
+    \item Once work has started and \ac{abm} is chose, often not simply able to switch
+    \item Overall not suited for Occam's Razor (most simple approach)
 \end{itemize}
 
-\section{Discussion}
+\paragraph{Problems of Approach 2}
+\begin{itemize}
+    \item Can be good choice if model can be easily constructed and \ac{abm} framework allows for
+        desired representation
+    \item Lots of (human) effort to construct computational model
+    \item Often limited reusability
+\end{itemize}
+
 \section{Conclusion}
+\begin{itemize}
+    \item Democratization is good but only relevant if flexibility and performance is given \cite{Johnson2025}
+    \item \cite{Pleyer2025} \texttt{cellular\_raza} solves some of these problems
+\end{itemize}
 
 \onecolumn
-
 \bibliographystyle{IEEEtran}
 \bibliography{references}
-
-\section{Supplementary Material}
-\subsection{Supplement}
 
 \end{document}
