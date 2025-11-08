@@ -19,10 +19,9 @@
 \usepackage{acronym}
 \usepackage{listings}
 \usepackage{multicol}
+\usepackage[obeyclassoptions]{standalone}
 \usepackage{tikz}
 \usepackage[dvipsnames]{xcolor}
-
-\usetikzlibrary{trees}
 
 \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
 \def\cross{\tikz\draw[scale=0.3, black, line width=0.3mm](0,0) -- (1,1) -- (0.5,0.5) -- (0,1) -- (1,0) -- (0.5,0.5);}
@@ -177,7 +176,7 @@ that researchers can experiment with more freely.}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\columnwidth]{example-image-a}
+    \includestandalone[width=0.9\columnwidth]{figures/generalized-modeling}
     \caption{TODO (Schema: Generalized Modeling approach)}
 \end{figure}
 
