@@ -25,6 +25,7 @@
 
 \newacro{abm}[ABM]{Agent-Based Model}
 \newacro{cabm}[CABM]{Cellular Agent-Based Model}
+\newacro{cabmf}[CABMF]{Cellular Agent-Based Modeling Framework}
 \newacro{ca}[CA]{Cellular Automaton}
 \newacro{ib}[IB]{Individual-Based}
 \newacro{ode}[ODE]{Ordinary Differential Equation}
@@ -146,14 +147,31 @@ pdfkeywords={},
 \section{Introduction}
 
 \paragraph{Usage of \acl{abm}}
-\begin{itemize}
-    \item \cite{Pleyer2023} \acl{abm} are widely used for many problems
-    \item \cite{Ghaffarizadeh2018,Gorochowski2012,Kang2014} Common choices for cellular representation (i.e. spherical cells, off-lattice approach)
-    \item More biology than models available
-\end{itemize}
+\acp{abm} have become indispensable tools in the study of complex systems.
+Their applications cover topics in Ecology~\cite{Grimm2013}, Social Sciences~\cite{Bankes2002},
+Autonomous Cars~\cite{Karolemeas2024}, Spread of COVID infections~\cite{Shattock2022} and many more.
+They utilize descriptions on the level of individual entities such as cells, organisms or humans
+- often called agents - to build up models of complex systems.
+As such they aim to study the emergence of collective behaviors as a result of \ac{ib} interactions.
+In the field of biology, cells can be considered the fundamental building blocks of nature,
+comprising many complex systems such as bacterial communities~\cite{Nagarajan2022},
+organs~\cite{DuttaMoscato2014}, plants~\cite{Merks2011} and tissue patterning~\cite{Thorne2007}.
+They are particularly suited to capture effects such as heterogeneity, spatial effects and provide
+a natural way to combine cellular building blocks.
 
-\textbf{I argue that \acp{abm} need to be more flexible to support more use-cases and become a tool
-that researchers can experiment with more freely.}
+In order to quickly construct new simulations, many modeling frameworks have emerged which simplify
+the process of model design~\cite{Pleyer2023}.
+However, despite their wide applicability, most of these models rely on a fixed cellular
+representation.
+Furthermore, these models often come with a large set of parameters that need to be specified in
+order to obtain a working simulation which results in problems with respect to interpretability and
+parameter estimation of the model.
+
+With this text, we argue that \acp{abmf} need to be more flexible with respect to design of agents
+and environment in order to tackle the aforementioned challenges.
+We further argue that many groundbreaking modeling techniques have been preceded by strong
+results and made popular by generalist tools which are able to solve a whole class of problems,
+thereby enabling many researchers to access the novel method.
 
 \section{Principles of Foundational Tools}
 
@@ -213,6 +231,8 @@ that researchers can experiment with more freely.}
     \item Does the existing model match the use-case? Or are researchers trying to make it conform?
     \item Once work has started and \ac{abm} is chose, often not simply able to switch
     \item Overall not suited for Occam's Razor (most simple approach)
+    \item \cite{Ghaffarizadeh2018,Gorochowski2012,Kang2014} Common choices for cellular
+        representation (i.e. spherical cells, off-lattice approach)
 \end{itemize}
 
 \paragraph{Problems of Approach 2}
