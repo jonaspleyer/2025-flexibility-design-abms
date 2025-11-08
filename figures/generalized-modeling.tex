@@ -27,11 +27,11 @@
 
     % If flip is active, we switch start and end
     \ifthenelse{\equal{#9}{true}}{
-        \pgfmathsetmacro{\tstart}{\aend};
-        \pgfmathsetmacro{\tend}{\astart};
+        \pgfmathsetmacro{\tstart}{\aend}
+        \pgfmathsetmacro{\tend}{\astart}
     }{
-        \pgfmathsetmacro{\tstart}{\astart};
-        \pgfmathsetmacro{\tend}{\aend};
+        \pgfmathsetmacro{\tstart}{\astart}
+        \pgfmathsetmacro{\tend}{\aend}
     }
 
   \path[font = \sffamily, decoration = {text along path, text = {|\mytextstyle|#8},
