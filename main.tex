@@ -175,13 +175,41 @@ thereby enabling many researchers to access the novel method.
 
 \section{Principles of Foundational Tools}
 
-\paragraph{Introduce some really widespread techniques}
-\begin{enumerate}
-    \item \acfp{ode} Boost (C++)~\cite{Mulansky2011}, Julia~\cite{rackauckas2017differentialequations}
-    \item \acfp{pde} OpenFoam~\cite{Weller1998}, FEniCS~\cite{BarattaEtal2023,ScroggsEtal2022,BasixJoss,AlnaesEtal2014}
-    \item \acfp{mbs} LAMMPS~\cite{Thompson2022}, GROMACS~\cite{Abraham2015}
-    \item \acfp{dnn} PyTorch\cite{Ansel_PyTorch_2_Faster_2024}, TensorFlow~\cite{tensorflow2015-whitepaper}
-\end{enumerate}
+Over the past years, a variety of foundational techniques have greatly influenced scientific
+research by enabling advanced workflows and providing novel insights.
+We focus on a subset of methods which are so fundamental that their usage spans across almost all
+disciplines and can target a variety of problems.
+Due to their foundational nature, each method comes with many tools which have been developed such
+that researchers are not concerned with implementation details but can focus on the scientific
+question at hand.
+
+\paragraph{Selected Foundational Methods}
+Among these are \acp{ode} which are mostly used todescribe the dynamics of various systems.
+Their mathematical form is rather simple which makes it easy for computationally inclined
+researchers to implement solvers.
+Nevertheless, many tools exist which are frequently reused such as the Boost
+library~\cite{Mulansky2011} or the Julia package
+DifferentialEquations.jl~\cite{rackauckas2017differentialequations}.
+When considering spatial effects, \acp{pde} provide a natural way to extend \acp{ode} although the
+added structure also requries deeper mathematical knowledge and more complex numerical solvers.
+Widely used tools are OpenFoam~\cite{Weller1998} for fluid simulations or
+FEniCS~\cite{BarattaEtal2023,ScroggsEtal2022,BasixJoss,AlnaesEtal2014} for finite-element workflows.
+\acp{mbs} excel at describing the dynamics of spatial systems involving many interacting particles.
+GROMACS~\cite{Abraham2015} and LAMPPS~\cite{Thompson2022} both target classical molecular dynamics
+where the latter focusses on materials modeling but also arguably provides better flexibility while
+the latter is considered to be faster.
+Finally, in the past years, \acp{dnn} have been applied to a variety of problems such as protein
+folding~\cite{Jumper2021} or biomedical image segmentation~\cite{Ronneberger2015}.
+These have been enabled by tools such as PyTorch~\cite{Ansel_PyTorch_2_Faster_2024} and
+TensorFlow~\cite{tensorflow2015-whitepaper}.
+
+% \paragraph{Introduce some really widespread techniques}
+% \begin{enumerate}
+%     \item \acfp{ode} Boost (C++)~\cite{Mulansky2011}, Julia~\cite{rackauckas2017differentialequations}
+%     \item \acfp{pde} OpenFoam~\cite{Weller1998}, FEniCS~\cite{BarattaEtal2023,ScroggsEtal2022,BasixJoss,AlnaesEtal2014}
+%     \item \acfp{mbs} LAMMPS~\cite{Thompson2022}, GROMACS~\cite{Abraham2015}
+%     \item \acfp{dnn} PyTorch\cite{Ansel_PyTorch_2_Faster_2024}, TensorFlow~\cite{tensorflow2015-whitepaper}
+% \end{enumerate}
 
 \paragraph{Observations about these tools}
 \begin{itemize}
