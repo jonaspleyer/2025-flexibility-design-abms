@@ -269,13 +269,20 @@ a given starting point which enables core modeling techniques such as model redu
 validation.
 
 \paragraph{General Modeling Approach}
-\begin{itemize}
-    \item Adapt model to biological reality
-    \item Ability to reduce the model until nothing is left
-    \item No inheritance of parameters/magic numbers
-\end{itemize}
+In order to construct models which can describe biological systems and connections therein, a common
+workflow is usually applied.
+This scheme (see Figure~\ref{fig:modeling-schematic}) involves multiple steps: A mathematical model
+which get's translated into computational form, one ore more predictions of said model and finally
+comparison with data to embed the model within biological reality.
+Having compared a model with data, we can adjust our model in a variety of ways.
+One option is to include additional effects, thus extending the model or we can simplify it, i.e.
+for parameter estimation purposes.
+The comparison with data is crucial in order to embed our theoretical work within biological
+reality.
+Furthermore, when constructing new models it is important to be able to build up models from scratch
+without having to rely on existing work such that minimal models can be constructed.
 
-\begin{figure}[H]
+\begin{figure}
     \centering
     \includestandalone[width=\columnwidth]{figures/generalized-modeling}
     \caption{
@@ -286,6 +293,7 @@ validation.
         This comparison nurishes our understanding of reality and allows us to formulate more
         appropriate models which starts the cycle again.
     }
+    \label{fig:modeling-schematic}
 \end{figure}
 
 \section{Cellular \aclp{abm}}
