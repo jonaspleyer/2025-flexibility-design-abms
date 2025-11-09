@@ -33,6 +33,7 @@
 \newacro{dnn}[DNN]{Deep Neural Network}
 \newacro{mbs}[MBS]{Many-Body Simulation}
 \newacroplural{ca}[CA]{Cellular Automata}
+\newacro{gpu}[GPU]{Graphical Processing Unit}
 
 \newcommand{\todo}[1]{\colorbox{WildStrawberry}{\textcolor{white}{#1}}}
 
@@ -211,17 +212,61 @@ TensorFlow~\cite{tensorflow2015-whitepaper}.
 %     \item \acfp{dnn} PyTorch\cite{Ansel_PyTorch_2_Faster_2024}, TensorFlow~\cite{tensorflow2015-whitepaper}
 % \end{enumerate}
 
-\paragraph{Observations about these tools}
-\begin{itemize}
-    \item Very generalized concepts; specific usage/model brings forth plethora of results
-    \item They have one two things: A mathematical description that everyone agrees on; A solving
-        scheme that everyone agrees on (with variations of course)
-    \item $\Rightarrow$ identify overarching principles:
-    \item Strong results
-    \item Good usability (ie. tools \& Performance)
-    \item \textbf{Generalized formulation} $\longrightarrow$ specific use-case;\\
-        However this is not how they got developed (developed from collection of examples)
-\end{itemize}
+\paragraph{Shared Principles}
+% \textbf{Observations about these tools}
+% \begin{itemize}
+%     \item Very generalized concepts; specific usage/model brings forth plethora of results
+%     \item They have one two things: A mathematical description that everyone agrees on; A solving
+%         scheme that everyone agrees on (with variations of course)
+%     \item $\Rightarrow$ identify overarching principles:
+%     \item Strong results
+%     \item Good usability (ie. tools \& Performance)
+%     \item \textbf{Generalized formulation} $\longrightarrow$ specific use-case;\\
+%         However this is not how they got developed (developed from collection of examples)
+% \end{itemize}
+
+Despite their differences in applications and technical details, all of these tools exhibit similar
+unifying characteristics.
+Every individual component of these tools can be formulated using mathematical methods despite that
+many results can not be simply calculated by a purely mathematical approach.
+This is also true for computations involving stochatic effects such as stochastic \acp{ode} or
+calculations which are only approximate.
+This generalized concept can be observed across all levels of complexity.
+Furthermore, since many of these methods have been established for numerous years, they follow
+mathematical notions which are rooted in a description that is mostly agreed upon in the
+respective field, often with no or only minor modifications.
+A particular problem is defined by a given a set of initially known properties (i.e. initial values,
+labeled data, etc.) and a mathematical description.
+In the case of \acp{ode} one could ask what the initial values of said \ac{ode} were given a set of
+parameters and final values but other questions such as: "Which parameters allow me to represent
+this set of datapoints most optimally?" are also valid.
+The mathematical description links these quantities together and a suitable solver can be chosen
+which accomplishes the goal most effectively.
+
+The preceding observations may have only emerged once a particular method was popularized.
+However, the reason that these methods became popular in the first place was due to their strong
+results either in academic or industrial settings.
+Tools which make it easy to exploit these methods and deliver exceptional performance are key
+cornerstone for why these methods have become so popular.
+In the case of \acp{dnn}, the technological advancement of training these networks on
+\acp{gpu}~\cite{Raina2009} via gradient descent~\cite{Rumelhart1986} was crucial for their
+breakthrough.
+
+Finally, another important aspect is that all of these methods have the ability to be very complex
+but can also be reduced until nothing is left.
+This means that in the case of an \ac{ode} given by
+\begin{equation}
+    \partial_t \textbf{x} = \textbf{f}(t,\textbf{x})
+\end{equation}
+any mathematically expressable term can be inserted for $\textbf{f}(t,\textbf{x})$, allowing complex
+models.
+But despite this flexibility, we can still choose $\textbf{f}=0$, thus eliminating any model
+properties.
+These statements trivially hold true for \acp{pde} and \acp{mbs} where in the last term we can think
+of either no point particles or particles with no dynamics.
+It is a key feature that all of these tools allow scaling of the complexity scale without requiring
+a given starting point which enables core modeling techniques such as model reduction and model
+validation.
 
 \paragraph{General Modeling Approach}
 \begin{itemize}
