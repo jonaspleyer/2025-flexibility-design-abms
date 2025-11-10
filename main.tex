@@ -268,20 +268,6 @@ It is a key feature that all of these tools allow scaling of the complexity scal
 a given starting point which enables core modeling techniques such as model reduction and model
 validation.
 
-\paragraph{General Modeling Approach}
-In order to construct models which can describe biological systems and connections therein, a common
-workflow is usually applied.
-This scheme (see Figure~\ref{fig:modeling-schematic}) involves multiple steps: A mathematical model
-which get's translated into computational form, one ore more predictions of said model and finally
-comparison with data to embed the model within biological reality.
-Having compared a model with data, we can adjust our model in a variety of ways.
-One option is to include additional effects, thus extending the model or we can simplify it, i.e.
-for parameter estimation purposes.
-The comparison with data is crucial in order to embed our theoretical work within biological
-reality.
-Furthermore, when constructing new models it is important to be able to build up models from scratch
-without having to rely on existing work such that minimal models can be constructed.
-
 \begin{figure}[H]
     \centering
     \includestandalone[width=\columnwidth]{figures/generalized-modeling}
@@ -295,6 +281,20 @@ without having to rely on existing work such that minimal models can be construc
     }
     \label{fig:modeling-schematic}
 \end{figure}
+
+\paragraph{General Modeling Approach}
+In order to construct models which can describe biological systems and connections therein, a common
+workflow is usually applied.
+This scheme (see Figure~\ref{fig:modeling-schematic}) involves multiple steps: A mathematical model
+which get's translated into computational form, one ore more predictions of said model and finally
+comparison with data to embed the model within biological reality.
+Having compared a model with data, we can adjust our model in a variety of ways.
+One option is to include additional effects, thus extending the model or we can simplify it, i.e.
+for parameter estimation purposes.
+The comparison with data is crucial in order to embed our theoretical work within biological
+reality.
+Furthermore, when constructing new models it is important to be able to build up models from scratch
+without having to rely on existing work such that minimal models can be constructed.
 
 \section{Cellular \aclp{abm}}
 % \paragraph{Constructing a computational Model - 2 Options}
@@ -398,6 +398,7 @@ standards of freedom and explorability which are common in other areas of resear
 and \acp{ode}.
 
 \end{multicols}
+\newpage
 \bibliographystyle{IEEEtran}
 \bibliography{references}
 
