@@ -9,5 +9,4 @@
 *.fls
 *.toc
 
-pred-prey/target
-pred-prey/Cargo.lock
+archive.zip
