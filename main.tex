@@ -317,7 +317,7 @@ Both approaches bear challenges and provide advantages which we want to highligh
 %         representation (i.e. spherical cells, off-lattice approach)
 % \end{itemize}
 In our previous work, we have reviewed a variety of \acp{abm}~\cite{Pleyer2023}.
-One thing that unifies these \acp{abm} is that each of them assumes a particular spatial
+One common theme among these \acp{abm} is that each of them assumes a particular spatial
 representation of the cell.
 The most common choice is the soft-spheroid model~\cite{Ghaffarizadeh2018,Gorochowski2012} with only
 a few select \acp{abm} providing support for ellipses or cylinders~\cite{Kang2014}.
@@ -332,8 +332,9 @@ By choosing a particular \ac{abm}, researchers should be concerned even more abo
 this model fits their needs and can be fully parametrized by the given biological context.
 Once work has started within a particular modeling environment, switching to a different \ac{abm} is
 often tedious and costly in time.
-These are limitations on the ability to use model reduction techniques within the \ac{abm} and make
-it difficult to follow best principles such as Occam's Razor~\cite{Sober2015} for model development.
+These are significant limitations on the ability to use model reduction techniques within the
+\ac{abm} and make it difficult to follow best principles such as Occam's Razor~\cite{Sober2015} for
+novel model development.
 
 \paragraph{From a clean Slate}
 % \paragraph{Problems of Approach 2}
@@ -344,14 +345,32 @@ it difficult to follow best principles such as Occam's Razor~\cite{Sober2015} fo
 %     \item Often limited reusability
 % \end{itemize}
 The other option is to build up a model starting from a clean slate.
-When deciding on this approach it is still possible to utilize existing tools as long as they are
+When deciding on this approach it is still possible to harness existing tools as long as they are
 capable of describing the desired cellular properties and provide enough flexibility to perform
 model reduction and parameter estimation techniques.
 General-purpose tools such as Netlogo~\cite{Wilensky_NetLogo_1999} which are not specifically
 tailored towards biological questions can thus be a viable option.
-However, due to their general nature, they may not contain the desired functionalities which then
-need to be built by the researchers leading to additional human developmental effort in the
-construction of the model.
+However, due to their general nature, they may lack desired functionalities which require additional
+work to implement that falls back to the researchers.\\
+The case where no existing framework is used and almost all code is written by the researchers
+themselves, presents a very labor-intensive approach to solving the problem, even when utilizing
+libraries for linear algebra and numerical solvers.
+This approach also involves another class of challenges involving correctness of implemented
+algorithms and accuracy of numerical results.\\
+The resulting \ac{abm} is often highly tailored to a specific niche or the respective research
+question at hand, thus limiting its ability to be reused in other contexts.
+
+\paragraph{Building Blocks}
+In contrast to the two approaches described before, there exists another path which has not been
+fully realized yet.
+That is to provide building blocks for cellular behaviors and let researchers be able to construct
+and combine own building blocks from them.
+This procedure is well known to most software developers who have authored one or more libraries.
+There it is also desirable to provide reusable parts that can be combined in multiple ways.
+Our own \ac{abm} cellular\_raza~\cite{Pleyer2025} aims to push further into this direction by
+separating abstract mathematical concepts from numerical solvers and implemented building blocks.
+However, it is too early to tell if this particular approach has the potential to become the
+de-facto standard for constructing novel \acp{abm}.
 
 \section{Conclusion}
 \begin{itemize}
