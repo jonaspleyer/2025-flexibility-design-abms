@@ -13,6 +13,7 @@
 \usepackage{makecell}
 \usepackage{microtype}      % microtypography
 \usepackage{mathrsfs}
+\usepackage{multicol}
 \usepackage{graphicx}
 \usepackage{doi}
 \usepackage{float}
@@ -139,7 +140,7 @@ pdfkeywords={},
 % keywords can be removed
 \keywords{Individual-Based \and Cell \and Biology \and Dynamical System}
 
-\twocolumn
+\begin{multicols}{2}
 
 %###################################################################################################
 \section{Introduction}
@@ -279,7 +280,7 @@ reality.
 Furthermore, when constructing new models it is important to be able to build up models from scratch
 without having to rely on existing work such that minimal models can be constructed.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includestandalone[width=\columnwidth]{figures/generalized-modeling}
     \caption{
@@ -394,7 +395,7 @@ If the field succeeds in the constructing of at least one of them, \acp{abm} cou
 standards of freedom and explorability which are common in other areas of research such as \acp{dnn}
 and \acp{ode}.
 
-\onecolumn
+\end{multicols}
 \bibliographystyle{IEEEtran}
 \bibliography{references}
 
