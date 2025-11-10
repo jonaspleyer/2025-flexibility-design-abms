@@ -259,7 +259,7 @@ any mathematically expressable term can be inserted for $\textbf{f}(t,\textbf{x}
 models.
 But despite this flexibility, we can still choose $\textbf{f}=0$, thus eliminating any model
 properties.
-These statements trivially hold true for \acp{pde} and \acp{mbs} where in the last term we can think
+These statements trivially hold true for \acp{pde} and \acp{mbs} where in the last case we can think
 of either no point particles or particles with no dynamics.
 It is a key feature that all of these tools allow scaling of the complexity scale without requiring
 a given starting point which enables core modeling techniques such as model reduction and model
@@ -294,32 +294,64 @@ without having to rely on existing work such that minimal models can be construc
 \end{figure}
 
 \section{Cellular \aclp{abm}}
-
-\paragraph{Constructing a computational Model - 2 Options}
-\begin{enumerate}
-    \item Use existing \ac{abm} (Framework)
-    \item Build something from scratch (Possibly even with some really general \ac{abm}
-        framework such as netlogo)
-\end{enumerate}
+% \paragraph{Constructing a computational Model - 2 Options}
+% \begin{enumerate}
+%     \item Use existing \ac{abm} (Framework)
+%     \item Build something from scratch (Possibly even with some really general \ac{abm}
+%         framework such as netlogo)
+% \end{enumerate}
 % They often combine simulation techniques such as \acp{ode} and \acp{pde}
+When constructing an \ac{abm}, researchers are faced with the question if they should start
+bottom-up, by defining core ingredients of the model by themselves or if a preexisting \ac{abm} can
+be reused for their purpose.
+Both approaches bear challenges and provide advantages which we want to highlight now.
 
-\paragraph{Problems of Approach 1}
-\begin{itemize}
-    \item Inheritance of existing parameters
-    \item Does the existing model match the use-case? Or are researchers trying to make it conform?
-    \item Once work has started and \ac{abm} is chose, often not simply able to switch
-    \item Overall not suited for Occam's Razor (most simple approach)
-    \item \cite{Ghaffarizadeh2018,Gorochowski2012,Kang2014} Common choices for cellular
-        representation (i.e. spherical cells, off-lattice approach)
-\end{itemize}
+\paragraph{Using an existing \acs{abm}}
+% \paragraph{Problems of Approach 1}
+% \begin{itemize}
+%     \item Inheritance of existing parameters
+%     \item Does the existing model match the use-case? Or are researchers trying to make it conform?
+%     \item Once work has started and \ac{abm} is chose, often not simply able to switch
+%     \item Overall not suited for Occam's Razor (most simple approach)
+%     \item \cite{Ghaffarizadeh2018,Gorochowski2012,Kang2014} Common choices for cellular
+%         representation (i.e. spherical cells, off-lattice approach)
+% \end{itemize}
+In our previous work, we have reviewed a variety of \acp{abm}~\cite{Pleyer2023}.
+One thing that unifies these \acp{abm} is that each of them assumes a particular spatial
+representation of the cell.
+The most common choice is the soft-spheroid model~\cite{Ghaffarizadeh2018,Gorochowski2012} with only
+a few select \acp{abm} providing support for ellipses or cylinders~\cite{Kang2014}.
+Any particular choice for the spatial representation is fundamental to the dynamics which these
+models are capable of describing and will carry over in other aspects such as growth, physical
+interactions and intracellular processes.
+Furthermore, we observed that existing \acp{abm} carry a large set of parameters which are often
+necessary to specify in order to obtain the desired dynamics.
+These parameters can become problematic when trying to perform a model reduction since they are
+intrinsic to the chosen \ac{abm} and can not be simply removed.
+By choosing a particular \ac{abm}, researchers should be concerned even more about the question if
+this model fits their needs and can be fully parametrized by the given biological context.
+Once work has started within a particular modeling environment, switching to a different \ac{abm} is
+often tedious and costly in time.
+These are limitations on the ability to use model reduction techniques within the \ac{abm} and make
+it difficult to follow best principles such as Occam's Razor~\cite{Sober2015} for model development.
 
-\paragraph{Problems of Approach 2}
-\begin{itemize}
-    \item Can be good choice if model can be easily constructed and \ac{abm} framework allows for
-        desired representation
-    \item Lots of (human) effort to construct computational model
-    \item Often limited reusability
-\end{itemize}
+\paragraph{From a clean Slate}
+% \paragraph{Problems of Approach 2}
+% \begin{itemize}
+%     \item Can be good choice if model can be easily constructed and \ac{abm} framework allows for
+%         desired representation
+%     \item Lots of (human) effort to construct computational model
+%     \item Often limited reusability
+% \end{itemize}
+The other option is to build up a model starting from a clean slate.
+When deciding on this approach it is still possible to utilize existing tools as long as they are
+capable of describing the desired cellular properties and provide enough flexibility to perform
+model reduction and parameter estimation techniques.
+General-purpose tools such as Netlogo~\cite{Wilensky_NetLogo_1999} which are not specifically
+tailored towards biological questions can thus be a viable option.
+However, due to their general nature, they may not contain the desired functionalities which then
+need to be built by the researchers leading to additional human developmental effort in the
+construction of the model.
 
 \section{Conclusion}
 \begin{itemize}
