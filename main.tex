@@ -224,8 +224,8 @@ TensorFlow~\cite{tensorflow2015-whitepaper}.
 
 Despite their differences in applications and technical details, all of these tools exhibit similar
 unifying characteristics.
-Every individual component of these tools can be formulated using mathematical methods despite that
-many results can not be simply calculated by a purely mathematical approach.
+Every individual component of these tools can be formulated using mathematical methods despite the
+fact that most scientific results can not be calculated by a purely mathematical approach.
 This is also true for computations involving stochatic effects such as stochastic \acp{ode} or
 calculations which are only approximate.
 This generalized concept can be observed across all levels of complexity.
@@ -373,10 +373,26 @@ However, it is too early to tell if this particular approach has the potential t
 de-facto standard for constructing novel \acp{abm}.
 
 \section{Conclusion}
-\begin{itemize}
-    \item Democratization is good but only relevant if flexibility and performance is given \cite{Johnson2025}
-    \item \cite{Pleyer2025} \texttt{cellular\_raza} solves some of these problems
-\end{itemize}
+% \begin{itemize}
+%     \item Democratization is good but only relevant if flexibility and performance is given \cite{Johnson2025}
+%     \item \cite{Pleyer2025} \texttt{cellular\_raza} solves some of these problems
+% \end{itemize}
+\acp{abm} have already proven to be useful tools in describing cellular systems and their emergent
+phenomena.
+Furthermore, due to their individual-based treatment of cells, they provide the most intuitive way
+of bridging the gap from single-cell studies to collective phenomena.
+However, in order for these tools to become widely applicable and easily reusable, a more flexible
+approach which allows better reusability and customizability is required.
+Frameworks which are too specialized or lack in performance will be unable to support the
+exploratory nature that the diverse field of biology has to offer.
+Furthermore, a more unified mathematical treatment of all approaches would allow for the
+construction of more generalized libraries that can be reused by researchers across topics ranging
+from microbiology over human stem cells to plant cells.
+This task can be accomplished by starting with a possibly unified mathematical description or a
+shared library and toolchain which allows us to derive a mathematical notion.
+If the field succeeds in the constructing of at least one of them, \acp{abm} could live up to the
+standards of freedom and explorability which are common in other areas of research such as \acp{dnn}
+and \acp{ode}.
 
 \onecolumn
 \bibliographystyle{IEEEtran}
