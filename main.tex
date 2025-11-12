@@ -1,10 +1,14 @@
-\documentclass{article}
+\documentclass[utf8]{FrontiersinHarvard}
 
-\usepackage{arxiv}
+\usepackage{url,hyperref,microtype,subcaption}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{lineno}
+
+\linenumbers
 
 \usepackage[utf8]{inputenc} % allow utf-8 input
 \usepackage[T1]{fontenc}    % use 8-bit T1 fonts
-\usepackage[hidelinks]{hyperref}       % hyperlinks
+% \usepackage[hidelinks]{hyperref}       % hyperlinks
 \usepackage{url}            % simple URL typesetting
 \usepackage{booktabs}       % professional-quality tables
 \usepackage{amsmath,amssymb,amsthm}
@@ -43,48 +47,51 @@
 
 \newcommand{\R}{\mathbb{R}}
 
-\title{
-    Agent-Based Modelling in Cellular Biology\\Are we flexible yet?
-    % The Significance of Flexibility in the\\
-    % Design of Agent-Based Models
-}
+\def\keyFont{\fontsize{8}{11}\helveticabold }
+\def\firstAuthorLast{Sample {et~al.}} %use et al only if is more than 1 author
+\def\Authors{Jonas Pleyer\,$^{1,*}$, Christian Fleck\,$^{1}$}
+% Affiliations should be keyed to the author's name with superscript numbers and be listed as follows: Laboratory, Institute, Department, Organization, City, State abbreviation (USA, Canada, Australia), and Country (without detailed address information such as city zip codes or street names).
+% If one of the authors has a change of address, list the new address below the correspondence details using a superscript symbol and use the same symbol to indicate the author in the author list.
+\def\Address{$^{1}$Freiburg Center for Data Analysis, Modeling and AI, University of Freiburg, Freiburg im Breisgau, Germany}
+% The Corresponding Author should be marked with an asterisk
+% Provide the exact contact address (this time including street name and city zip code) and email of the corresponding author
+\def\corrAuthor{Jonas Pleyer}
+
+\def\corrEmail{jonas.pleyer@fdm.uni-freiburg.de}
+
+\title[]{Agent-Based Modelling in Cellular Biology\\Are we flexible yet?}
+
+\author[\firstAuthorLast ]{\Authors} %This field will be automatically populated
+\address{} %This field will be automatically populated
+\correspondance{} %This field will be automatically populated
 
 %\date{September 9, 1985}	% Here you can change the date presented in the paper title
 %\date{} 					% Or removing it
 
-\author{
-    \href{https://orcid.org/0009-0001-0613-7978}{
-        \includegraphics[scale=0.06]{orcid.pdf}
-        \hspace{1mm}Jonas Pleyer
-    }
-    \thanks{
-        \href{https://jonas.pleyer.org}{jonas.pleyer.org},
-        \href{https://cellular-raza.com}{cellular-raza.com}
-    }\\
-	Freiburg Center for Data-Analysis and Modeling\\
-	University of Freiburg\\
-	\texttt{jonas.pleyer@fdm.uni-freiburg.de} \\
-	%% examples of more authors
-	\And
-	\href{https://orcid.org/0000-0002-6371-4495}{
-        \includegraphics[scale=0.06]{orcid.pdf}
-        \hspace{1mm}Christian Fleck
-    }\\
-	Freiburg Center for Data-Analysis and Modeling\\
-	University of Freiburg
-}
+% \author{
+%     \href{https://orcid.org/0009-0001-0613-7978}{
+%         \includegraphics[scale=0.06]{orcid.pdf}
+%         \hspace{1mm}Jonas Pleyer
+%     }
+%     \thanks{
+%         \href{https://jonas.pleyer.org}{jonas.pleyer.org},
+%         \href{https://cellular-raza.com}{cellular-raza.com}
+%     }\\
+% 	Freiburg Center for Data-Analysis and Modeling\\
+% 	University of Freiburg\\
+% 	\texttt{jonas.pleyer@fdm.uni-freiburg.de} \\
+% 	%% examples of more authors
+% 	\And
+% 	\href{https://orcid.org/0000-0002-6371-4495}{
+%         \includegraphics[scale=0.06]{orcid.pdf}
+%         \hspace{1mm}Christian Fleck
+%     }\\
+% 	Freiburg Center for Data-Analysis and Modeling\\
+% 	University of Freiburg
+% }
 
-% Uncomment to remove the date
-%\date{}
-
-% Uncomment to override  the `A preprint' in the header
-\renewcommand{\headeright}{An Opinion Piece}
-\renewcommand{\undertitle}{An Opinion Piece}
-%\renewcommand{\undertitle}{Technical Report}
-\renewcommand{\shorttitle}{Agent-Based Modelling in Cellular Biology - Are we flexible yet?}
-
-\usepackage{enumitem}
-\setlist{nolistsep}
+% \usepackage{enumitem}
+% \setlist{nolistsep}
 
 %%% Add PDF metadata to help others organize their library
 %%% Once the PDF is generated, you can check the metadata with
@@ -112,10 +119,11 @@ pdfkeywords={},
 \makeatother
 
 \begin{document}
+\onecolumn
 
-\maketitle
+% \maketitle
 
-% \paragraph{Title Building Blocks}
+% \subsection{Title Building Blocks}
 % \begin{enumerate}
 %     \item \textbf{\acl{abm}}
 %     \item \textbf{Frameworks} (possibly optional, "models" alone only refers to single-purpose studies;
@@ -128,6 +136,7 @@ pdfkeywords={},
 
 %###################################################################################################
 \begin{abstract}
+    \section{}
     Cellular \aclp{abm} are widely used tools to describe biological systems.
     Over the course of the past years, many modeling tools have emerged which solve particular
     research questions.
@@ -137,17 +146,18 @@ pdfkeywords={},
     compare these with currently existing \acp{abm}.
     We come to the conclusion that existing \acp{abm} lack in flexibility which hinders overall
     progress of the field.
+
+    \tiny
+     \keyFont{ \section{Keywords:} keyword, keyword, keyword, keyword, keyword, keyword, keyword, keyword} %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
 \end{abstract}
 
 % keywords can be removed
-\keywords{Individual-Based \and Cell \and Biology \and Dynamical System}
-
-\begin{multicols}{2}
+% \keywords{Individual-Based \and Cell \and Biology \and Dynamical System}
 
 %###################################################################################################
 \section{Introduction}
 
-\paragraph{Usage of \acl{abm}}
+\subsection{Usage of \acl{abm}}
 \acp{abm} have become indispensable tools in the study of complex systems.
 Their applications cover topics in Ecology~\cite{Grimm2013}, Social Sciences~\cite{Bankes2002},
 Autonomous Cars~\cite{Karolemeas2024}, Spread of COVID infections~\cite{Shattock2022} and many more.
@@ -184,7 +194,7 @@ Due to their foundational nature, each method comes with many tools which have b
 that researchers are not concerned with implementation details but can focus on the scientific
 question at hand.
 
-\paragraph{Selected Foundational Methods}
+\subsection{Selected Foundational Methods}
 Among these are \acp{ode} which are mostly used todescribe the dynamics of various systems.
 Their mathematical form is rather simple which makes it easy for computationally inclined
 researchers to implement solvers.
@@ -204,7 +214,7 @@ folding~\cite{Jumper2021} or biomedical image segmentation~\cite{Ronneberger2015
 These have been enabled by tools such as PyTorch~\cite{Ansel_PyTorch_2_Faster_2024} and
 TensorFlow~\cite{tensorflow2015-whitepaper}.
 
-% \paragraph{Introduce some really widespread techniques}
+% \subsection{Introduce some really widespread techniques}
 % \begin{enumerate}
 %     \item \acfp{ode} Boost (C++)~\cite{Mulansky2011}, Julia~\cite{rackauckas2017differentialequations}
 %     \item \acfp{pde} OpenFoam~\cite{Weller1998}, FEniCS~\cite{BarattaEtal2023,ScroggsEtal2022,BasixJoss,AlnaesEtal2014}
@@ -212,7 +222,7 @@ TensorFlow~\cite{tensorflow2015-whitepaper}.
 %     \item \acfp{dnn} PyTorch\cite{Ansel_PyTorch_2_Faster_2024}, TensorFlow~\cite{tensorflow2015-whitepaper}
 % \end{enumerate}
 
-\paragraph{Shared Principles}
+\subsection{Shared Principles}
 % \textbf{Observations about these tools}
 % \begin{itemize}
 %     \item Very generalized concepts; specific usage/model brings forth plethora of results
@@ -270,7 +280,7 @@ validation.
 
 \begin{figure}[H]
     \centering
-    \includestandalone[width=\columnwidth]{figures/generalized-modeling}
+    \includestandalone[width=0.5\textwidth]{figures/generalized-modeling}
     \caption{
         Schematic representation of a typical modeling approach.
         It is in principle possible to start at any arrow.
@@ -282,7 +292,7 @@ validation.
     \label{fig:modeling-schematic}
 \end{figure}
 
-\paragraph{General Modeling Approach}
+\subsection{General Modeling Approach}
 In order to construct models which can describe biological systems and connections therein, a common
 workflow is usually applied.
 This scheme (see Figure~\ref{fig:modeling-schematic}) involves multiple steps: A mathematical model
@@ -297,7 +307,7 @@ Furthermore, when constructing new models it is important to be able to build up
 without having to rely on existing work such that minimal models can be constructed.
 
 \section{Cellular \aclp{abm}}
-% \paragraph{Constructing a computational Model - 2 Options}
+% \subsection{Constructing a computational Model - 2 Options}
 % \begin{enumerate}
 %     \item Use existing \ac{abm} (Framework)
 %     \item Build something from scratch (Possibly even with some really general \ac{abm}
@@ -309,8 +319,8 @@ bottom-up, by defining core ingredients of the model by themselves or if a preex
 be reused for their purpose.
 Both approaches bear challenges and provide advantages which we want to highlight now.
 
-\paragraph{Using an existing \acs{abm}}
-% \paragraph{Problems of Approach 1}
+\subsection{Using an existing \acs{abm}}
+% \subsection{Problems of Approach 1}
 % \begin{itemize}
 %     \item Inheritance of existing parameters
 %     \item Does the existing model match the use-case? Or are researchers trying to make it conform?
@@ -336,11 +346,11 @@ this model fits their needs and can be fully parametrized by the given biologica
 Once work has started within a particular modeling environment, switching to a different \ac{abm} is
 often tedious and costly in time.
 These are significant limitations on the ability to use model reduction techniques within the
-\ac{abm} and make it difficult to follow best principles such as Occam's Razor~\cite{Sober2015} for
+\ac{abm} and make it difficult to follow best principles such as Ockam's Razor~\cite{Sober2015} for
 novel model development.
 
-\paragraph{From a clean Slate}
-% \paragraph{Problems of Approach 2}
+\subsection{From a clean Slate}
+% \subsection{Problems of Approach 2}
 % \begin{itemize}
 %     \item Can be good choice if model can be easily constructed and \ac{abm} framework allows for
 %         desired representation
@@ -363,7 +373,7 @@ algorithms and accuracy of numerical results.\\
 The resulting \ac{abm} is often highly tailored to a specific niche or the respective research
 question at hand, thus limiting its ability to be reused in other contexts.
 
-\paragraph{Building Blocks}
+\subsection{Building Blocks}
 In contrast to the two approaches described before, there exists another path which has not been
 fully realized yet.
 That is to provide building blocks for cellular behaviors and let researchers be able to construct
@@ -397,9 +407,8 @@ If the field succeeds in the constructing of at least one of them, \acp{abm} cou
 standards of freedom and explorability which are common in other areas of research such as \acp{dnn}
 and \acp{ode}.
 
-\end{multicols}
 \newpage
-\bibliographystyle{IEEEtran}
+\bibliographystyle{FrontiersinHarvard}
 \bibliography{references}
 
 \end{document}
