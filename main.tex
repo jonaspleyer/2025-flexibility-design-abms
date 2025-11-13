@@ -330,14 +330,18 @@ question at hand, thus limiting its ability to be reused in other contexts.
 \subsection{Building Blocks}
 In contrast to the two approaches described before, there exists another path which has not been
 fully realized yet.
-That is to provide building blocks for cellular behaviors and let researchers be able to construct
-and combine own building blocks from them.
+That is to disect the components of cell-agents into building blocks.
+In order for this approach to be valuable, researchers need to be able to construct external building blocks without having to rely on existing functionalities.
+Furthermore we believe that widespread adoption can only be achieved if there exist a large amount of predefined building blocks which can be reused by researchers.
 This procedure is well known to most software developers who have authored one or more libraries
-where it is desirable to provide reusable parts that can be combined in multiple ways.
+where it is desirable to provide reusable parts that can be combined in multiple ways.\\
 Our own \ac{abm} cellular\_raza~\cite{Pleyer2025} aims to push further into this direction by
 separating abstract mathematical concepts from numerical solvers and implemented building blocks.
 However, it is too early to tell if this particular approach has the potential to become the
-de-facto standard for constructing novel \acp{abm}.
+de-facto standard for constructing novel \acp{abm}.\\
+Another promising framework is BioDynaMo~\cite{Breitwieser2021} which also considers building blocks
+and provides a modular design.
+Although it exhibits groundbreaking performance it is yet to be applied across a diverse range of topics and only supports a limited set of building blocks at the time of writing.
 
 \section{Conclusion}
 % \begin{itemize}
