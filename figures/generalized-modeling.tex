@@ -10,6 +10,7 @@
 \definecolor{COLOR5}{HTML}{e8702a}
 
 \usetikzlibrary{decorations.text}
+\usetikzlibrary{decorations.pathmorphing}
 
 \newcommand*{\mytextstyle}{\sffamily\Large\bfseries\color{black!85}}
 \newcommand{\arcarrow}[9]{%
@@ -50,5 +51,10 @@
     \foreach \x/\label/\c/\flip in \iterable {
         \arcarrow{3}{3.5}{4}{\x+20}{\x+100}{5}{\c, draw = \c!50!black, very thick}{\label}{\flip}
     }
+
+    \path[draw,red!60,line width=1mm,
+        decoration={zigzag,segment length=1.5em,amplitude=1.25mm},decorate]
+        (270+17:2.5) -- (270+17:4.5);
+    \pgftext{\includegraphics[width=12em]{figures/branching-cropped.png}} at (10:3);
 \end{tikzpicture}
 \end{document}
