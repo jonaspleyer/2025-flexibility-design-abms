@@ -278,7 +278,7 @@ Furthermore, when constructing new models it is important to be able to build up
 without having to rely on existing work such that minimal models with low amounts of parameters can
 be constructed.
 
-\section{Constructing Cellular \aclp{abm}}
+\section{Constructing Cellular Agent-Based Models}
 % \subsection{Constructing a computational Model - 2 Options}
 % \begin{enumerate}
 %     \item Use existing \ac{abm} (Framework)
@@ -302,24 +302,30 @@ Both approaches bear challenges and provide advantages which we want to highligh
 %         representation (i.e. spherical cells, off-lattice approach)
 % \end{itemize}
 In our previous work, we have reviewed a variety of \acp{abm}~\cite{Pleyer2023}.
-One common theme among these \acp{abm} is that each of them assumes a particular spatial
-representation of the cell.
-The most common choice is the soft-spheroid model~\cite{Ghaffarizadeh2018,Gorochowski2012} with only
-a few select \acp{abm} providing support for ellipses or cylinders~\cite{Kang2014}.
-Any particular choice for the spatial representation is fundamental to the dynamics which these
+Almost all of them assume a particular cellular and environmental representation.
+The most common choice for cellular shape is the soft-spheroid
+model~\cite{Ghaffarizadeh2018,Gorochowski2012} while only a few select \acp{abm} providing support
+for ellipses, cylinders~\cite{Kang2014} or other representations.
+Although more variability exists for the description of extracellular compounds, most models choose
+a diffusion-based approach~\cite{Breitwieser2021}.
+Any particular choice for these representations is fundamental to the dynamics which these
 models are capable of describing and will carry over in other aspects such as growth, physical
-interactions and intracellular processes.
-Furthermore, we observed that existing \acp{abm} carry a large set of parameters which are often
-necessary to specify in order to obtain the desired dynamics.
-These parameters can become problematic when trying to perform a model reduction since they are
-intrinsic to the chosen \ac{abm} and can not be simply removed.
-By choosing a particular \ac{abm}, researchers should be concerned even more about the question if
-this model fits their needs and can be fully parametrized by the given biological context.
+interactions and intracellular processes.\\
+Furthermore, we observed that existing \acp{abm} carry a large set of non-optional parameters which
+need to be specified in order to be able to use the model.
+These parameters can be problems for methods such as model reductions since they are intrinsic to
+the chosen \ac{abm} and can not be simply removed.
+If they can not be known from literature values or determined by parameter estimation techniques,
+researchers need to take great care in how the values of said parameters influence obtained results.
+Before choosing a particular \ac{abm}, researchers need to evaluate if the model in question is
+capable of describing the desired phenomena and can be fully parametrized by the given biological
+context.
 Once work has started within a particular modeling environment, switching to a different \ac{abm} is
 often tedious and costly in time.
-These are significant limitations on the ability to use model reduction techniques within the
-\ac{abm} and make it difficult to follow best principles such as Ockam's Razor~\cite{Sober2015} for
-novel model development.
+These observations present significant practical limitations on the ability of researchers to find a
+suitable model for the given biological problem at hand.
+They also lead to problems when employing model reduction techniques and make it difficult to follow
+best principles such as Ockam's Razor~\cite{Sober2015} during model development.
 
 \subsection{From a clean Slate}
 % \subsection{Problems of Approach 2}
@@ -329,14 +335,14 @@ novel model development.
 %     \item Lots of (human) effort to construct computational model
 %     \item Often limited reusability
 % \end{itemize}
-The other option is to build up a model starting from a clean slate.
+Another option is to build up a model starting from a clean slate.
 When deciding on this approach it is still possible to harness existing tools as long as they are
 capable of describing the desired cellular properties and provide enough flexibility to perform
 model reduction and parameter estimation techniques.
 General-purpose tools such as Netlogo~\cite{Wilensky_NetLogo_1999} which are not specifically
 tailored towards biological questions can thus be a viable option.
-However, due to their general nature, they may lack desired functionalities which require additional
-work to implement that falls back to the researchers.\\
+However, due to their generalized nature, they may lack desired functionalities specifically
+taylored to biological problems and will thus involve additional work during model development.\\
 The case where no existing framework is used and almost all code is written by the researchers
 themselves, presents a very labor-intensive approach to solving the problem, even when utilizing
 libraries for linear algebra and numerical solvers.
@@ -349,17 +355,20 @@ question at hand, thus limiting its ability to be reused in other contexts.
 In contrast to the two approaches described before, there exists another path which has not been
 fully realized yet.
 That is to disect the components of cell-agents into building blocks.
-In order for this approach to be valuable, researchers need to be able to construct external building blocks without having to rely on existing functionalities.
-Furthermore we believe that widespread adoption can only be achieved if there exist a large amount of predefined building blocks which can be reused by researchers.
-This procedure is well known to most software developers who have authored one or more libraries
-where it is desirable to provide reusable parts that can be combined in multiple ways.\\
+In order for this approach to be valuable, researchers need to be able to construct external
+building blocks without having to rely on existing functionalities.
+Furthermore we believe that widespread adoption can only be achieved if a tool can provide
+sufficiently many predefined building blocks which can be reused by researchers for their respective
+field of research.
+This procedure is closely followed in the development of large software libraries where it is
+desirable to provide reusable parts that can be freely combined.\\
 Our own \ac{abm} cellular\_raza~\cite{Pleyer2025} aims to push further into this direction by
 separating abstract mathematical concepts from numerical solvers and implemented building blocks.
 However, it is too early to tell if this particular approach has the potential to become the
 de-facto standard for constructing novel \acp{abm}.\\
 Another promising framework is BioDynaMo~\cite{Breitwieser2021} which also considers building blocks
 and provides a modular design.
-Although it exhibits groundbreaking performance it is yet to be applied across a diverse range of topics and only supports a limited set of building blocks at the time of writing.
+Although it exhibits groundbreaking performance it is yet to be applied across a diverse range of topics and only supports a small set of building blocks at the time of writing.
 
 \section{Conclusion}
 % \begin{itemize}
@@ -368,20 +377,20 @@ Although it exhibits groundbreaking performance it is yet to be applied across a
 % \end{itemize}
 \acp{abm} have already proven to be useful tools in describing cellular systems and their emergent
 phenomena.
-Furthermore, due to their individual-based treatment of cells, they provide the most intuitive way
+Furthermore, due to their individual-based treatment of cells, they provide an intuitive way
 of bridging the gap from single-cell studies to collective phenomena.
 However, in order for these tools to become widely applicable and easily reusable, a more flexible
 approach which allows better reusability and customizability is required.
 Frameworks which are too specialized or lack in performance will be unable to support the
 exploratory nature that the diverse field of biology has to offer.
-Furthermore, a more unified mathematical treatment of all approaches would allow for the
+Furthermore, a more unified mathematical treatment would allow for the
 construction of more generalized libraries that can be reused by researchers across topics ranging
 from microbiology over human stem cells to plant cells.
-This task can be accomplished by starting with a possibly unified mathematical description or a
-shared library and toolchain which allows us to derive a mathematical notion.
-If the field succeeds in the constructing of at least one of them, \acp{abm} could live up to the
-standards of freedom and explorability which are common in other areas of research such as \acp{dnn}
-and \acp{ode}.
+The construction of either a widely used generalized library or a unified mathematical framework,
+would provide the necessary abstractions to allow researchers to flexibly conceive and implement
+novel \acp{abm}.
+Only then can this field live up to the standards of explorability and flexibility that are common
+in other areas of research.
 
 \newpage
 \bibliographystyle{FrontiersinHarvard}
