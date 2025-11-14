@@ -1,10 +1,21 @@
-\documentclass[utf8]{FrontiersinHarvard}
+\newif\ifpreprint
+
+\preprinttrue
+
+\ifpreprint
+    \documentclass[utf8]{FrontiersinHarvardPreprint}
+\else
+    \documentclass[utf8]{FrontiersinHarvard}
+\fi
 
 \usepackage{url,hyperref,microtype,subcaption}
 \usepackage[onehalfspacing]{setspace}
 \usepackage{lineno}
 
-\linenumbers
+\ifpreprint
+\else
+    \linenumbers
+\fi
 
 \usepackage[utf8]{inputenc} % allow utf-8 input
 \usepackage[T1]{fontenc}    % use 8-bit T1 fonts
@@ -49,7 +60,11 @@
 
 \def\keyFont{\fontsize{8}{11}\helveticabold }
 \def\firstAuthorLast{Pleyer {et~al.}} %use et al only if is more than 1 author
-\def\Authors{Jonas Pleyer\,$^{1,*}$, Christian Fleck\,$^{1}$}
+\def\Authors{Jonas Pleyer\,$^{1,*}$
+\ifpreprint
+\else
+, Christian Fleck\,$^{1}$
+\fi}
 % Affiliations should be keyed to the author's name with superscript numbers and be listed as follows: Laboratory, Institute, Department, Organization, City, State abbreviation (USA, Canada, Australia), and Country (without detailed address information such as city zip codes or street names).
 % If one of the authors has a change of address, list the new address below the correspondence details using a superscript symbol and use the same symbol to indicate the author in the author list.
 \def\Address{$^{1}$Freiburg Center for Data Analysis, Modeling and AI, University of Freiburg, Freiburg im Breisgau, Germany}
